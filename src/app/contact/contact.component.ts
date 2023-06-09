@@ -12,5 +12,6 @@ export class ContactComponent {
   //Print all data inputted by the user
   onSubmit(form: NgForm): void {
     console.log(this.signupForm?.value);
+    form.resetForm();
   }
 }
