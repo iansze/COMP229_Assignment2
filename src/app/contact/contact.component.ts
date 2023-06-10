@@ -16,6 +16,6 @@ export class ContactComponent {
   onSubmit(form: NgForm): void {
     console.log(this.signupForm?.value);
     form.resetForm();
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 }
