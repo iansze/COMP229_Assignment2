@@ -16,7 +16,10 @@ export class UserService {
   }): Promise<any> {
     try {
       const response = await this.httpClient
-        .post<any>('http://localhost:3000/register', data)
+        .post<any>(
+          'https://green-coast-047530810.3.azurestaticapps.net/register',
+          data
+        )
         .toPromise();
       console.log('Data posted to Azure Cosmos DB:', response);
       return response;
