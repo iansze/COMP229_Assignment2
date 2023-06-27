@@ -7,7 +7,7 @@ const userRouter = require("./routes/user");
 
 mongoose
   .connect(
-    "mongodb://testdw:KaVkJ8pY2xJ7kg3APtUG2fke6bsPnNrQzH3l3sti2Odzg4MUZ2PVjjJhBF7ITxrblXesEGkldH4LACDbpYuwIw==@testdw.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@testdw@",
+    "mongodb+srv://winco1125:axtv1fDZBzHnhepT@cluster0.dmsaq4j.mongodb.net/",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
