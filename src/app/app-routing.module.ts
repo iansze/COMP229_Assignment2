@@ -5,6 +5,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectComponent } from './project/project.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 //Set route
 const appRoutes: Routes = [
@@ -13,6 +15,8 @@ const appRoutes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
