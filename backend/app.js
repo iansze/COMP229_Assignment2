@@ -7,14 +7,10 @@ const userRouter = require("./routes/user");
 
 mongoose
   .connect(
-    "mongodb+srv://winco1125:axtv1fDZBzHnhepT@cluster0.dmsaq4j.mongodb.net/",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    "mongodb+srv://winco1125:axtv1fDZBzHnhepT@cluster0.dmsaq4j.mongodb.net/"
   )
   .then(() => {
-    console.log("connected to Al");
+    console.log("connected ");
   })
   .catch(() => {
     console.log("error");

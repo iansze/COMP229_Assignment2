@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,7 +28,7 @@ export class RegisterComponent {
   onSignUp(): void {
     // Call the service method to post the data
     const response = this.userServices.postData({
-      username: this.signupForm?.value.email,
+      username: this.signupForm?.value.username,
       password: this.signupForm?.value.password,
       email: this.signupForm?.value.email,
     });

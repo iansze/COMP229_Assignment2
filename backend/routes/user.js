@@ -22,8 +22,12 @@ router.post("/register", (req, res, next) => {
     });
 });
 
-router.get("/register", (req, res) => {
-  res.send(200, [{ id: 10, name: "Starlord", saying: "oh yeah" }]);
+router.get("/register", (req, res, next) => {
+  Post.find().then((doc) => {
+    res.status(200).json({
+      message: "sucess",
+    });
+  });
 });
 
 module.exports = router;

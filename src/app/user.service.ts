@@ -7,12 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   constructor(private httpClient: HttpClient) {}
-  private apiUrl = 'https://testdw.mongo.cosmos.azure.com/register';
+  private apiUrl = 'http://localhost:3000/register';
 
-  async postData(data: any): Promise<any> {
+  async postData(data: {
+    username: String;
+    password: string;
+    email: string;
+  }): Promise<any> {
     try {
       const response = await this.httpClient
-        .post<any>(this.apiUrl, data)
+        .post<any>('http://localhost:3000/register', data)
         .toPromise();
       console.log('Data posted to Azure Cosmos DB:', response);
       return response;
