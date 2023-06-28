@@ -25,7 +25,7 @@ export class RegisterComponent {
   //     form.value.email
   //   );
 
-  onSignUp(): void {
+  async onSignUp(): Promise<void> {
     // Call the service method to post the data
     const response = this.userServices.postData({
       username: this.signupForm?.value.username,
