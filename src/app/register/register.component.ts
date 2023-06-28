@@ -28,16 +28,18 @@ export class RegisterComponent {
   async onSignUp(): Promise<void> {
     try {
       // Call the service method to post the data
-      const response = await this.userServices.postData({
+      const response = await {
         username: this.signupForm?.value.username,
         password: this.signupForm?.value.password,
         email: this.signupForm?.value.email,
-      });
+      };
       // Handle success cases
       console.log('Data posted:', response);
     } catch (error) {
       // Handle error cases
       console.error('Error posting data:', error);
     }
+
+    console.log(this.signupForm);
   }
 }
