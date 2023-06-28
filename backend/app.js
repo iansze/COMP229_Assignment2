@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/*", (req, res) =>
-  res.sendFile("index.html", { root: "dist/COMP229_Assignment2/" })
+  res.sendFile("index.html", __dirname + "/dist/COMP229_Assignment2")
 );
 
 app.use("/", userRouter);
