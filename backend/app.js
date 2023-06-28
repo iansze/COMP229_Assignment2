@@ -18,7 +18,7 @@ mongoose
 
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
-app.use(express.static(__dirname + "./dist/COMP229_Assignment2"));
+app.use(express.static("./dist/COMP229_Assignment2"));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
