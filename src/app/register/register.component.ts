@@ -40,4 +40,10 @@ export class RegisterComponent {
       console.error('Error posting data:', error);
     }
   }
+
+  get() {
+    this.userServices.getPost().subscribe((data) => {
+      console.log(data);
+    });
+  }
 }

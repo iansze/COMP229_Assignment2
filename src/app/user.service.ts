@@ -41,4 +41,12 @@ export class UserService {
   //       console.log(responseData);
   //     });
   // }
+
+  getPost() {
+    return this.httpClient.get<{
+      username: string;
+      password: string;
+      email: string;
+    }>('/register');
+  }
 }
