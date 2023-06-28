@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   constructor(private httpClient: HttpClient) {}
-  private apiUrl = 'http://localhost:3000/register';
+  private apiUrl = '/register';
 
   async postData(data: any): Promise<any> {
     try {
