@@ -18,7 +18,7 @@ mongoose
 
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
-
+app.use(express.static("./dist/angular-app-heroku"));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
