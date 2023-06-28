@@ -19,6 +19,7 @@ mongoose
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
 app.use(express.static("./dist/angular-app-heroku"));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -32,6 +33,10 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.get("/*", (req, res) =>
+  res.sendFile("index.html", { root: "dist/angular-app-heroku/" })
+);
 
 app.use("/", userRouter);
 
