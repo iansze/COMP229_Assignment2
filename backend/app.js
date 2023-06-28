@@ -18,7 +18,7 @@ mongoose
 
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
-app.use(express.static("./dist/angular-app-heroku"));
+app.use(express.static(__dirname + "/dist/COMP229_Assignment2"));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/*", (req, res) =>
-  res.sendFile("index.html", { root: "dist/angular-app-heroku/" })
+  res.sendFile("index.html", { root: "dist/COMP229_Assignment2/" })
 );
 
 app.use("/", userRouter);
