@@ -9,13 +9,17 @@ export class UserService {
   constructor(private httpClient: HttpClient) {}
   private apiUrl = '/register';
 
-  async postData(data: any): Promise<any> {
+  async postData(data: {
+    username: string;
+    password: string;
+    email: string;
+  }): Promise<any> {
     try {
       const response = await this.httpClient
         .post<any>(this.apiUrl, data)
-        .toPromise();
-      console.log('Data posted to Azure Cosmos DB:', response);
-      return response;
+        .subscribe((responseData) => {
+          console.log(responseData);
+        });
     } catch (error) {
       console.error('Error posting data to Azure Cosmos DB:', error);
       throw error;
