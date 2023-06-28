@@ -25,13 +25,13 @@ export class RegisterComponent {
   //     form.value.email
   //   );
 
-  async onSignUp(): Promise<void> {
+  onSignUp(): void {
     // Call the service method to post the data
-    const response = this.userServices.postData({
-      username: this.signupForm?.value.username,
-      password: this.signupForm?.value.password,
-      email: this.signupForm?.value.email,
-    });
+    const response = this.userServices.createUser(
+      this.signupForm?.value.username,
+      this.signupForm?.value.password,
+      this.signupForm?.value.email
+    );
     // Handle success cases
     console.log('Data posted:', response);
   }
