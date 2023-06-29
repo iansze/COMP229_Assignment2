@@ -26,7 +26,7 @@ router.get("/api/register", (req, res, next) => {
   User.find().then((doc) => {
     res.status(200).json({
       message: "sucess",
-      pos: doc,
+      users: doc,
     });
   });
 });

@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent {
   @ViewChild('f') signupForm: NgForm | undefined;
-
+  data: any;
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -41,7 +41,15 @@ export class RegisterComponent {
     }
   }
 
-  get() {
-    this.userServices.getPost();
+  get(): void {
+    this.userServices.getPost().subscribe(
+      (response) => {
+        this.data = response;
+        console.log('Data retrieved from the database:', this.data);
+      },
+      (error) => {
+        console.error('Error retrieving data from the database:', error);
+      }
+    );
   }
 }
