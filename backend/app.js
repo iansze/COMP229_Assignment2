@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X_Requested-With, Content-Type, Accept, authorization,X-Api-Key,application/json"
+    "Origin, X_Requested-With, Content-Type, Accept, authorization,X-Api-Key"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -46,6 +46,6 @@ app.get("/*", (req, res) =>
   res.sendFile("index.html", { root: "dist/COMP229_Assignment2/" })
 );
 
-app.use("/", userRouter);
+app.use("/api", userRouter);
 
 module.exports = app;

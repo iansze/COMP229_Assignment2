@@ -13,4 +13,10 @@ export class BusinessContactListComponent implements OnInit {
   ngOnInit(): void {
     this.userServices.getUsers();
   }
+
+  getUser() {
+    this.userServices.getUsers().subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

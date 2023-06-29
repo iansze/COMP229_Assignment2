@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const port = process.env.PORT || 3000;
 
-router.post("/api/register", (req, res, next) => {
+router.post("/register", (req, res, next) => {
   const user = new User({
     username: req.body.username,
     password: req.body.password,
@@ -23,7 +23,7 @@ router.post("/api/register", (req, res, next) => {
     });
 });
 
-router.get("/api/list", (req, res, next) => {
+router.get("/list", (req, res, next) => {
   const data = {
     message: "Success",
     data: {
