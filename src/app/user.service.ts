@@ -42,11 +42,7 @@ export class UserService {
   //     });
   // }
 
-  getPost(): Observable<any> {
-    return this.httpClient.get<{
-      username: string;
-      password: string;
-      email: string;
-    }>('/api/register');
+  getPost() {
+    return this.apiUrl;
   }
 }

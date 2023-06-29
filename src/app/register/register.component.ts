@@ -41,15 +41,18 @@ export class RegisterComponent {
     }
   }
 
-  get(): void {
-    this.userServices.getPost().subscribe(
-      (response) => {
-        this.data = response;
-        console.log('Data retrieved from the database:', this.data);
-      },
-      (error) => {
-        console.error('Error retrieving data from the database:', error);
-      }
-    );
+  // get(): void {
+  //   this.userServices.getPost().subscribe(
+  //     (response) => {
+  //       this.data = response;
+  //       console.log('Data retrieved from the database:', this.data);
+  //     },
+  //     (error) => {
+  //       console.error('Error retrieving data from the database:', error);
+  //     }
+  //   );
+  // }
+  get() {
+    this.userServices.getPost();
   }
 }
