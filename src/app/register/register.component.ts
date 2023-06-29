@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-register',
@@ -27,12 +28,16 @@ export class RegisterComponent {
 
   async onSignUp(): Promise<void> {
     try {
+      // Create a new User object with form values
+      const user: User = {
+        username: this.signupForm?.value.username,
+        password: this.signupForm?.value.password,
+        email: this.signupForm?.value.email,
+      };
+
       // Call the service method to post the data
-      const response = await this.userServices.postData(
-        this.signupForm?.value.username,
-        this.signupForm?.value.password,
-        this.signupForm?.value.email
-      );
+      const response = await this.userServices.postData(user).toPromise();
+
       // Handle success cases
       console.log('Data posted:', response);
     } catch (error) {
@@ -52,8 +57,4 @@ export class RegisterComponent {
   //     }
   //   );
   // }
-  get() {
-    this.data = this.userServices.getPost();
-    console.log(this.data);
-  }
 }
