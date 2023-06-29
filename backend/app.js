@@ -27,6 +27,7 @@ app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }));
 app.use(express.static("./dist/COMP229_Assignment2"));
 app.use(cors());
+app.use("/api", userRouter);
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -45,7 +46,5 @@ app.use((req, res, next) => {
 app.get("/*", (req, res) =>
   res.sendFile("index.html", { root: "dist/COMP229_Assignment2/" })
 );
-
-app.use("api", userRouter);
 
 module.exports = app;
