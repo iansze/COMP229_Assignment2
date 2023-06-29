@@ -46,6 +46,6 @@ app.get("/*", (req, res) =>
   res.sendFile("index.html", { root: "dist/COMP229_Assignment2/" })
 );
 
-app.use("/api", userRouter);
+app.use("api", userRouter);
 
 module.exports = app;
