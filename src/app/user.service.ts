@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   constructor(private httpClient: HttpClient) {}
-  private apiUrl = '/register';
+  private apiUrl = '/api/register';
 
   async postData(data: {
     username: string;
@@ -48,7 +48,7 @@ export class UserService {
         username: string;
         password: string;
         email: string;
-      }>('/register')
+      }>('/api/register')
       .subscribe((responseData) => {
         console.log(responseData);
       });

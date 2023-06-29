@@ -17,7 +17,7 @@ mongoose
   });
 
 app.use(bodyParse.json());
-app.use(bodyParse.urlencoded({ extended: false }));
+app.use(bodyParse.urlencoded({ extended: true }));
 app.use(express.static("./dist/COMP229_Assignment2"));
 
 app.use((req, res, next) => {
