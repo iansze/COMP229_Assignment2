@@ -42,8 +42,6 @@ export class RegisterComponent {
   }
 
   get() {
-    this.userServices.getPost().subscribe((data) => {
-      console.log(data);
-    });
+    this.userServices.getPost();
   }
 }

@@ -43,10 +43,14 @@ export class UserService {
   // }
 
   getPost() {
-    return this.httpClient.get<{
-      username: string;
-      password: string;
-      email: string;
-    }>('/register');
+    return this.httpClient
+      .get<{
+        username: string;
+        password: string;
+        email: string;
+      }>('/register')
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
   }
 }
