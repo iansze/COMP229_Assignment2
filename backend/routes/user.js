@@ -24,11 +24,17 @@ router.post("/api/register", (req, res, next) => {
 });
 
 router.get("/api/list", (req, res, next) => {
-  User.find().then((doc) => {
-    res.status(200).json({
-      message: "sucess",
-    });
-  });
+  const data = {
+    message: "Success",
+    data: {
+      // Sample data
+      id: 1,
+      name: "John Doe",
+      email: "johndoe@example.com",
+    },
+  };
+
+  res.status(200).json(data);
 });
 
 module.exports = router;
