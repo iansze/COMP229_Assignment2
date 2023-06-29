@@ -8,6 +8,7 @@ import { User } from './user.model';
 })
 export class UserService {
   users: User[] = [];
+
   constructor(private httpClient: HttpClient) {}
   private apiUrl =
     'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/api/register';
@@ -16,24 +17,7 @@ export class UserService {
     return this.httpClient.post<any>(this.apiUrl, user);
   }
 
-  getUsers() {
-    this.httpClient
-      .get<{
-        users: User[];
-      }>('/api/list')
-      .pipe(
-        map((postData: { users: User[] }) => {
-          return postData.users.map((user) => {
-            return {
-              username: user.username,
-              password: user.password,
-              email: user.email,
-            };
-          });
-        })
-      )
-      .subscribe((data) => {
-        this.users = data;
-      });
+  public getProducts(): Observable<{ message: string; users: User[] }> {
+    return this.httpClient.get<{ message: string; users: User[] }>('/api/list');
   }
 }

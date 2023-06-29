@@ -26,8 +26,8 @@ router.post("/register", (req, res, next) => {
 router.get("/list", (req, res, next) => {
   User.find().then((doc) => {
     res.status(200).json({
-      message: "sucess",
-      user: doc,
+      message: "User fetched successfully!",
+      users: doc,
     });
   });
 });
