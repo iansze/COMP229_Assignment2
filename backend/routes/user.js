@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 
-router.post("/register", (req, res, next) => {
+router.post("/api/register", (req, res, next) => {
   const user = new User({
     username: req.body.username,
     password: req.body.password,
@@ -22,7 +22,7 @@ router.post("/register", (req, res, next) => {
     });
 });
 
-router.get("/register", (req, res, next) => {
+router.get("/api/register", (req, res, next) => {
   User.find().then((doc) => {
     res.status(200).json({
       message: "sucess",

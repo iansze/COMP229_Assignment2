@@ -19,6 +19,7 @@ mongoose
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }));
 app.use(express.static("./dist/COMP229_Assignment2"));
+app.use(cors());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
