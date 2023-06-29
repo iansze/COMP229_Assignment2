@@ -7,9 +7,7 @@ const cors = require("cors");
 const userRouter = require("./routes/user");
 
 mongoose
-  .connect(
-    "mongodb+srv://winco1125:dgCiDAcnZFLTIwD6@cluster0.dmsaq4j.mongodb.net/"
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/cluster0")
   .then(() => {
     console.log("connected ");
   })
