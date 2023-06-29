@@ -24,17 +24,12 @@ router.post("/register", (req, res, next) => {
 });
 
 router.get("/list", (req, res, next) => {
-  const data = {
-    message: "Success",
-    data: {
-      // Sample data
-      id: 1,
-      name: "John Doe",
-      email: "johndoe@example.com",
-    },
-  };
-
-  res.status(200).json(data);
+  Post.find().then((doc) => {
+    res.status(200).json({
+      message: "sucess",
+      user: doc,
+    });
+  });
 });
 
 module.exports = router;
