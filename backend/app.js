@@ -1,4 +1,5 @@
 const express = require("express");
+
 const bodyParse = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
@@ -7,7 +8,7 @@ const cors = require("cors");
 const userRouter = require("./routes/user");
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/cluster0")
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/COMP229_Assignment2")
   .then(() => {
     console.log("connected ");
   })
