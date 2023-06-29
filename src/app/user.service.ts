@@ -16,8 +16,6 @@ export class UserService {
   }
 
   getUsers(): Observable<any[]> {
-    return this.httpClient.get<any[]>(
-      'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/api/list'
-    );
+    return this.httpClient.get<any[]>('/api/list');
   }
 }
