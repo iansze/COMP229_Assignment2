@@ -13,11 +13,7 @@ import { User } from '../user.model';
 export class RegisterComponent {
   @ViewChild('f') signupForm: NgForm | undefined;
   data: any;
-  constructor(
-    private router: Router,
-    private httpClient: HttpClient,
-    private userServices: UserService
-  ) {}
+  constructor(private userServices: UserService) {}
 
   // onSignUp(form: NgForm): void {
   //   this.userServices.createUser(
