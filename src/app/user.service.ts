@@ -9,7 +9,7 @@ import { User } from './user.model';
 export class UserService {
   constructor(private httpClient: HttpClient) {}
   private apiUrl =
-    'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/register/api/register';
+    'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/api/register';
 
   postData(user: User): Observable<any> {
     return this.httpClient.post<any>(this.apiUrl, user);

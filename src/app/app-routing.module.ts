@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectComponent },
   { path: 'login', component: LoginComponent },
-  { path: '/api/register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
