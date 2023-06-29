@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,22 +11,13 @@ export class UserService {
   private apiUrl =
     'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/register/api/register';
 
-  async postData(data: {
-    username: string;
-    password: string;
-    email: string;
-  }): Promise<any> {
-    try {
-      const response = await this.httpClient
-        .post<any>(this.apiUrl, data)
-        .subscribe((responseData) => {
-          console.log(responseData);
-        });
-    } catch (error) {
-      console.error('Error posting data to Azure Cosmos DB:', error);
-      throw error;
-    }
+  postData(username: string, password: string, email: string) {
+    const user: User = { username: username, password: password, email: email };
+    this.httpClient.post<any>(this.apiUrl, user).subscribe((responseData) => {
+      console.log(responseData);
+    });
   }
+
   // createUser(username: String, password: string, email: string) {
   //   const userData = {
   //     username: username,
