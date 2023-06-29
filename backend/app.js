@@ -8,7 +8,10 @@ const cors = require("cors");
 const userRouter = require("./routes/user");
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/COMP229_Assignment2")
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("connected ");
   })

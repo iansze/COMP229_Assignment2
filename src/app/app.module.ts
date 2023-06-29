@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BusinessContactListComponent } from './business-contact-list/business-contact-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RegisterComponent } from './register/register.component';
     NavComponent,
     LoginComponent,
     RegisterComponent,
+    BusinessContactListComponent,
   ],
   imports: [
     BrowserModule,
