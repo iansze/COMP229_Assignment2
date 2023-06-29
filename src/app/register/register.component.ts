@@ -53,6 +53,7 @@ export class RegisterComponent {
   //   );
   // }
   get() {
-    this.userServices.getPost();
+    this.data = this.userServices.getPost();
+    console.log(this.data);
   }
 }
