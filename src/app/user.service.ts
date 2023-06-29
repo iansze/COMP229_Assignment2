@@ -16,28 +16,24 @@ export class UserService {
     return this.httpClient.post<any>(this.apiUrl, user);
   }
 
-  // getUsers() {
-  //   this.httpClient
-  //     .get<{
-  //       users: User[];
-  //     }>('/api/list')
-  //     .pipe(
-  //       map((postData: { users: User[] }) => {
-  //         return postData.users.map((user) => {
-  //           return {
-  //             username: user.username,
-  //             password: user.password,
-  //             email: user.email,
-  //           };
-  //         });
-  //       })
-  //     )
-  //     .subscribe((data) => {
-  //       this.users = data;
-  //     });
-  // }
   getUsers() {
-    let user = {};
-    return this.httpClient.get('/api/list');
+    this.httpClient
+      .get<{
+        users: User[];
+      }>('/api/list')
+      .pipe(
+        map((postData: { users: User[] }) => {
+          return postData.users.map((user) => {
+            return {
+              username: user.username,
+              password: user.password,
+              email: user.email,
+            };
+          });
+        })
+      )
+      .subscribe((data) => {
+        this.users = data;
+      });
   }
 }
