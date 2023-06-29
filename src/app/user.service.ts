@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   constructor(private httpClient: HttpClient) {}
-  private apiUrl = '/api/register';
+  private apiUrl =
+    'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/register/api/register';
 
   async postData(data: {
     username: string;
