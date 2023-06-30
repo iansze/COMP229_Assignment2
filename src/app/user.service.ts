@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class UserService {
   users: User[] = [];
-  baseUrl =
+  private baseUrl =
     'http://localhost:3000/' ||
     'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/';
 

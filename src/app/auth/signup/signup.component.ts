@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../user.model';
 import { AuthService } from '../auth.service';
 import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ import { lastValueFrom } from 'rxjs';
 export class SignupComponent {
   @ViewChild('f') signupForm: NgForm | undefined;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   async onSignUp() {
     try {
@@ -22,7 +23,7 @@ export class SignupComponent {
         email: this.signupForm?.value.email,
       };
       const response = await lastValueFrom(this.authService.signupUser(user));
-
+      this.router.navigate(['/login']);
       console.log('Data posted:', response);
     } catch (error) {
       console.error('Error posting data:', error);

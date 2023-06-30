@@ -34,10 +34,11 @@ export class AuthService {
   signupUser(user: User): Observable<User> {
     return this.httpClient.post<User>(this.baseUrl + 'api/register', user);
   }
+
   login(username: string, password: string) {
     const authData: AuthData = { username: username, password: password };
     this.httpClient
-      .post<{ token: string }>(this.baseUrl + '/api/login', authData)
+      .post<{ token: string }>(this.baseUrl + 'api/login', authData)
       .subscribe({
         next: (res) => {
           const token = res.token;
