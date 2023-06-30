@@ -10,11 +10,9 @@ export class UserService {
   users: User[] = [];
 
   constructor(private httpClient: HttpClient) {}
-  private apiUrl =
-    'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/api/register';
 
   postData(user: User): Observable<any> {
-    return this.httpClient.post<any>(this.apiUrl, user);
+    return this.httpClient.post<any>('/api/register', user);
   }
 
   public getProducts(): Observable<{ message: string; users: User[] }> {
