@@ -5,9 +5,10 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectComponent } from './project/project.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 import { BusinessContactListComponent } from './business-contact-list/business-contact-list.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthGuard } from './auth/authguard.guard';
 
 //Set route
 const appRoutes: Routes = [
@@ -17,8 +18,12 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'business-contact-list', component: BusinessContactListComponent },
+  { path: 'signup', component: SignupComponent },
+  {
+    path: 'business-contact-list',
+    component: BusinessContactListComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

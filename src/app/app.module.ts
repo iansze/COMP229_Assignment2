@@ -14,9 +14,10 @@ import { FooterComponent } from './component/footer/footer.component';
 import { NavComponent } from './component/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 import { BusinessContactListComponent } from './business-contact-list/business-contact-list.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthGuard } from './auth/authguard.guard';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { BusinessContactListComponent } from './business-contact-list/business-c
     FooterComponent,
     NavComponent,
     LoginComponent,
-    RegisterComponent,
     BusinessContactListComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

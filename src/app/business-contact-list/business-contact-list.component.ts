@@ -17,9 +17,8 @@ export class BusinessContactListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userServices.getProducts().subscribe((response) => {
-      this.users = response.users;
-      console.log('Data retrieved from the database:', response);
+    this.userServices.getUsers().subscribe((data) => {
+      this.users = data.users;
     });
   }
 }

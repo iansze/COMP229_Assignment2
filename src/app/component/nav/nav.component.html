@@ -22,11 +22,17 @@
       <li class="nav-item">
         <a class="nav-link active" routerLink="/contact">Contact Me</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" routerLink="/register">Re</a>
+      <li class="nav-item" *ngIf="!auth">
+        <a class="nav-link active" routerLink="/signup">Signup</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" routerLink="/business-contact-list">Re</a>
+      <li class="nav-item" *ngIf="!auth">
+        <a class="nav-link active" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="auth">
+        <p>{{username}}</p>
+      </li>
+      <li class="nav-item" *ngIf="auth">
+        <button class="" (click)="onLogout()">Logout</button>
       </li>
     </ul>
   </nav>

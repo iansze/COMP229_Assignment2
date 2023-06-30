@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({
@@ -8,14 +8,15 @@ import { User } from './user.model';
 })
 export class UserService {
   users: User[] = [];
+  baseUrl =
+    'http://localhost:3000/' ||
+    'https://comp229-assignment2-f3fcba403d2a.herokuapp.com/';
 
   constructor(private httpClient: HttpClient) {}
 
-  postData(user: User): Observable<any> {
-    return this.httpClient.post<any>('/api/register', user);
-  }
-
-  public getProducts(): Observable<{ message: string; users: User[] }> {
-    return this.httpClient.get<{ message: string; users: User[] }>('/api/list');
+  public getUsers(): Observable<{ message: string; users: User[] }> {
+    return this.httpClient.get<{ message: string; users: User[] }>(
+      this.baseUrl + 'api/list'
+    );
   }
 }

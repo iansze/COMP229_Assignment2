@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +12,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   @ViewChild('f') signupForm: NgForm | undefined;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   onLogin(form: NgForm): void {
-    console.log(this.signupForm?.value);
-    form.resetForm();
-    this.router.navigate(['']);
+    if (form.invalid) {
+      return;
+    }
+    this.authService.login(form.value.username, form.value.password);
   }
 }
