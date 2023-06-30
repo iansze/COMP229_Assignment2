@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
