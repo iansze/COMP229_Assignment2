@@ -8,7 +8,7 @@
         <input type="text" name="username" class="form-control form-control-lg " placeholder="User Name" ngModel #username="ngModel" required>
         <span class="text-danger" *ngIf="!username.valid && username.touched">Enter valid User Name</span>
 
-        <input type="text" name="password" class="form-control form-control-lg " placeholder="Password" ngModel #password="ngModel" required>
+        <input type="password" name="password" class="form-control form-control-lg " placeholder="Password" ngModel #password="ngModel" required>
         <span class="text-danger" *ngIf="!password.valid && password.touched">Enter valid Password </span>
       </div>
       <div class="mt-5 text-center">
