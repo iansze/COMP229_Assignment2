@@ -7,8 +7,10 @@ import { AboutComponent } from './about/about.component';
 import { ProjectComponent } from './project/project.component';
 import { LoginComponent } from './auth/login/login.component';
 import { BusinessContactListComponent } from './business-contact-list/business-contact-list.component';
+import { CreateContactComponent } from './business-contact-list/create-contact/create-contact.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthGuard } from './auth/authguard.guard';
+import { EditContactComponent } from './business-contact-list/edit-contact/edit-contact.component';
 
 //Set route
 const appRoutes: Routes = [
@@ -20,8 +22,18 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {
+    path: 'create-business-contact',
+    component: CreateContactComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'business-contact-list',
     component: BusinessContactListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-business-contact/:id',
+    component: EditContactComponent,
     canActivate: [AuthGuard],
   },
 ];

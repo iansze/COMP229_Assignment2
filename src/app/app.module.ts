@@ -17,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './auth/login/login.component';
 import { BusinessContactListComponent } from './business-contact-list/business-contact-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { AuthGuard } from './auth/authguard.guard';
+import { CreateContactComponent } from './business-contact-list/create-contact/create-contact.component';
+import { EditContactComponent } from './business-contact-list/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { AuthGuard } from './auth/authguard.guard';
     LoginComponent,
     BusinessContactListComponent,
     SignupComponent,
+    CreateContactComponent,
+    EditContactComponent,
   ],
   imports: [
     BrowserModule,
