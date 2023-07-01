@@ -6,6 +6,7 @@ const app = express();
 const cors = require("cors");
 
 const userRouter = require("./routes/user");
+const businessContactRouter = require("./routes/businessContact");
 
 mongoose
   .connect(
@@ -28,6 +29,7 @@ app.use(bodyParse.urlencoded({ extended: true }));
 app.use(express.static("./dist/COMP229_Assignment2"));
 app.use(cors());
 app.use("/api", userRouter);
+app.use("/api/business", businessContactRouter);
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
