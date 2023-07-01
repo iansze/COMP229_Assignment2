@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { User } from '../user.model';
+import { BusinessContact } from './businessContact.model';
 import { HttpClient } from '@angular/common/http';
+import { BusinessContactService } from './business-contact.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-business-contact-list',
@@ -9,16 +10,30 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./business-contact-list.component.css'],
 })
 export class BusinessContactListComponent implements OnInit {
-  users: User[] = [];
+  businessContact: BusinessContact[] = [];
+  contactSubscription: Subscription = new Subscription();
 
   constructor(
-    private userServices: UserService,
+    private businessContactService: BusinessContactService,
     private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.userServices.getUsers().subscribe((data) => {
-      this.users = data.users;
+    this.businessContactService.getBusinessContact().subscribe((data) => {
+      this.businessContact = data.businessContact;
     });
+    this.contactSubscription = this.businessContactService
+      .getContactListener()
+      .subscribe((data) => {
+        this.businessContact = data;
+      });
+  }
+
+  onDelete(id: string) {
+    this.businessContactService.deleteContact(id);
+  }
+
+  ngOnDestroy() {
+    this.contactSubscription.unsubscribe();
   }
 }
