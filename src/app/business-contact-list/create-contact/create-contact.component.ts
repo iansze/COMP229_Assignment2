@@ -18,6 +18,7 @@ export class CreateContactComponent {
     private router: Router
   ) {}
 
+  //Create contact function
   async onCreate() {
     try {
       const businessContact: BusinessContact = {

@@ -22,20 +22,25 @@
       <li class="nav-item">
         <a class="nav-link active" routerLink="/contact">Contact Me</a>
       </li>
+      <!--If the user does not login-->
       <li class="nav-item" *ngIf="!auth">
         <a class="nav-link active" routerLink="/signup">Signup</a>
       </li>
       <li class="nav-item" *ngIf="!auth">
         <a class="nav-link active" routerLink="/login">Login</a>
       </li>
+      <!--If the user logged in-->
       <li class="nav-item" *ngIf="auth">
         <a class="nav-link active" routerLink="/business-contact-list">Business Contact List </a>
       </li>
+    </ul>
+    <ul class="nav align-items-center">
       <li class="nav-item" *ngIf="auth">
-        <p>{{username}}</p>
+        <h5 style="
+        margin-bottom: 0px;">{{username}}</h5>
       </li>
       <li class="nav-item" *ngIf="auth">
-        <button class="" (click)="onLogout()">Logout</button>
+        <button class="btn btn-outline-danger mx-4" (click)="onLogout()">Logout</button>
       </li>
     </ul>
   </nav>

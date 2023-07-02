@@ -32,6 +32,7 @@ export class AuthService {
     return this.httpClient.post<User>('/api/register', user);
   }
 
+  //Login function
   login(username: string, password: string) {
     const authData: AuthData = { username: username, password: password };
     this.httpClient.post<{ token: string }>('/api/login', authData).subscribe({
@@ -48,6 +49,7 @@ export class AuthService {
       //Incorrect username or password redirect back to the Login View
       error: (error) => {
         let currentUrl = this.router.url;
+        //Spcifically for the redirected back to the Login View
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {

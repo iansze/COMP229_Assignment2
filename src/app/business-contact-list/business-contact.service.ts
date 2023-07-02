@@ -9,40 +9,46 @@ import { Router } from '@angular/router';
 })
 export class BusinessContactService {
   businessContact: BusinessContact[] = [];
+  //mainly for delete fuction
   private contactUpdated = new Subject<BusinessContact[]>();
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
+  //buiness contact list
   getBusinessContact(): Observable<{
     message: string;
     businessContact: BusinessContact[];
   }> {
-    return this.httpClient
-      .get<{
-        message: string;
-        businessContact: BusinessContact[];
-      }>('/api/business/contact-list')
-      .pipe(
-        map(
-          (contactData: {
-            message: string;
-            businessContact: BusinessContact[];
-          }) => {
-            contactData.businessContact.sort((a, b) =>
-              a.name.localeCompare(b.name)
-            );
-            this.businessContact = contactData.businessContact;
-            this.contactUpdated.next([...this.businessContact]);
-            return contactData;
-          }
+    return (
+      this.httpClient
+        .get<{
+          message: string;
+          businessContact: BusinessContact[];
+        }>('/api/business/contact-list')
+        //change data to sorted list
+        .pipe(
+          map(
+            (contactData: {
+              message: string;
+              businessContact: BusinessContact[];
+            }) => {
+              contactData.businessContact.sort((a, b) =>
+                a.name.localeCompare(b.name)
+              );
+              this.businessContact = contactData.businessContact;
+              return contactData;
+            }
+          )
         )
-      );
+    );
   }
 
+  //buiness contact list
   getContactListener() {
     return this.contactUpdated.asObservable();
   }
 
+  //create contact
   createBusinessContact(
     businessContact: BusinessContact
   ): Observable<BusinessContact> {
@@ -52,6 +58,7 @@ export class BusinessContactService {
     );
   }
 
+  //edit contact
   getBusinessContactById(id: string): Observable<{
     email: string;
     number: number;
@@ -66,6 +73,7 @@ export class BusinessContactService {
     }>('/api/business/contact-list/' + id);
   }
 
+  //edit contact
   updateContact(id: string, name: string, number: number, email: string) {
     const businessContact: BusinessContact = {
       _id: id,
@@ -76,15 +84,11 @@ export class BusinessContactService {
     this.httpClient
       .put('/api/business/contact-list/' + id, businessContact)
       .subscribe((res) => {
-        const updateContact = [...this.businessContact];
-        const oldContactIndex = updateContact.findIndex(
-          (i) => i._id === businessContact._id
-        );
-        updateContact[oldContactIndex] = businessContact;
         this.router.navigate(['/business-contact-list']);
       });
   }
 
+  //buiness contact list
   deleteContact(id: string) {
     this.httpClient
       .delete('/api/business/contact-list/' + id)

@@ -15,6 +15,7 @@ export class SignupComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  //Signup function
   async onSignUp() {
     try {
       const user: User = {

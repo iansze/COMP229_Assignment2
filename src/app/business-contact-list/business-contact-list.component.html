@@ -12,12 +12,12 @@
             <h5 class="card-title">Contact Name: {{contact.name}}</h5>
             <p class="card-text">Contact Number: {{contact.number}}</p>
             <p class="card-text">Email: {{contact.email}}</p>
-            <button class="btn btn-primary me-2"><a [routerLink]="['/edit-business-contact', contact._id]">Update</a></button>
+            <button class="btn btn-primary me-2"><a class="text-decoration-none text-light" [routerLink]="['/edit-business-contact', contact._id]">Update</a></button>
             <button class="btn btn-danger" (click)="onDelete(contact._id)">Delete</button>
           </div>
         </div>
       </div>
     </div>
-    <button class="mb-2"><a class="nav-link active" routerLink="/create-business-contact" aria-current="page">Create New Business Contact</a></button>
+    <a class="mb-2 btn btn-outline-dark" routerLink="/create-business-contact" aria-current="page">Create New Business Contact</a>
   </div>
 </div>

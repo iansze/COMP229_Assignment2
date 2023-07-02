@@ -19,9 +19,11 @@ export class BusinessContactListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //Display all contacts from database
     this.businessContactService.getBusinessContact().subscribe((data) => {
       this.businessContact = data.businessContact;
     });
+    //Update contact list when new contact is created or deleted
     this.contactSubscription = this.businessContactService
       .getContactListener()
       .subscribe((data) => {
