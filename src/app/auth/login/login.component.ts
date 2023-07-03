@@ -13,6 +13,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
 
+  //Login function
   onLogin(form: NgForm): void {
     if (form.invalid) {
       return;

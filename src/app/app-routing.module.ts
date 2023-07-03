@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'projects', component: ProjectComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  //canActivate: [AuthGuard] is used to protect the route
   {
     path: 'create-business-contact',
     component: CreateContactComponent,

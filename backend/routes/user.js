@@ -39,13 +39,4 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-router.get("/list", (req, res, next) => {
-  User.find().then((doc) => {
-    res.status(200).json({
-      message: "User fetched successfully!",
-      users: doc,
-    });
-  });
-});
-
 module.exports = router;
