@@ -11,7 +11,7 @@ const businessContactRouter = require("./routes/businessContact");
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb+srv://winco1125:dgCiDAcnZFLTIwD6@cluster0.dmsaq4j.mongodb.net/",
+      "mongodb+srv://winco1125:JdrSJ0hNhtHp1i3e@cluster0.dmsaq4j.mongodb.net/",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
