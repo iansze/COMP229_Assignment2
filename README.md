@@ -1,5 +1,5 @@
 ## Introduction
-## Welcome to COMP229 Assignment 2, a comprehensive web application developed by Ian Sze. This project showcases a full-stack application using Angular for the frontend and Node.js for the backend. It is designed to provide a seamless and interactive user experience.
+## A comprehensive web application developed by Ian Sze. This project showcases a full-stack application using Angular for the frontend and Node.js for the backend. It is designed to provide a seamless and interactive user experience.
 
 ## Features
 User Authentication: Secure login and registration functionality.
@@ -9,7 +9,7 @@ Dynamic Content: Pages for about, services, projects, and contact information.
 ## Technologies Used
 Frontend: Angular
 Backend: Node.js, Express.js
-Database: MongoDB (assumed based on the structure)
+Database: MongoDB 
 Styling: CSS bootstrap
 ## Project Structure
 src/app/: Contains Angular components for different sections of the application.
