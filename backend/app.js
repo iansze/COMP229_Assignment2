@@ -1,5 +1,5 @@
 const express = require("express");
-
+const dotenv = require("dotenv");
 const bodyParse = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
@@ -7,16 +7,9 @@ const cors = require("cors");
 
 const userRouter = require("./routes/user");
 const businessContactRouter = require("./routes/businessContact");
-
+dotenv.config();
 mongoose
-  .connect(
-    process.env.MONGODB_URI ||
-      "mongodb+srv://winco1125:JdrSJ0hNhtHp1i3e@cluster0.dmsaq4j.mongodb.net/",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGOURL)
   .then(() => {
     console.log("connected ");
   })
